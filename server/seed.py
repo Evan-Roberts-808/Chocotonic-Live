@@ -216,11 +216,10 @@ def restore_backup(filename):
         data = pickle.load(f)
 
     product_objects = [
-    OrderItem(
-        order_id=info.order_id,
+    Cart_Item(
+        cart_id=info.cart_id,
         product_id=info.product_id,
-        quantity=info.quantity,
-        price=info.price
+        quantity=info.quantity
     ) for info in data
 ]
 
@@ -230,11 +229,11 @@ def restore_backup(filename):
 
 if __name__ == "__main__":
     with app.app_context():
-        # restore_backup("data-backup/<class 'models.OrderItem'>.pickle")
+        restore_backup("data-backup/<class 'models.Cart_Item'>.pickle")
         # update_order_statuses()
         # seed_order_status()
         # save_table_data_to_pickle(User)
-        view_pickle_structure("data-backup/<class 'models.Order'>.pickle")
+        # view_pickle_structure("data-backup/<class 'models.Order'>.pickle")
         # seed_orders()
         # seed_reviews()
         # seed_users()
