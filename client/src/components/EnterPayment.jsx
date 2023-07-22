@@ -27,7 +27,7 @@ function EnterPayment({ onNext }) {
 
   useEffect(() => {
     if (user) {
-      fetch(`/api/payments/${user.id}`)
+      fetch(`/payments/${user.id}`)
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -48,7 +48,7 @@ function EnterPayment({ onNext }) {
 
   const handleNext = (values) => {
 
-    fetch(`/api/payments/${user.id}`, {
+    fetch(`/payments/${user.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -47,7 +47,7 @@ function Cart() {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    fetch("/api/carts")
+    fetch("/carts")
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -109,7 +109,7 @@ function Cart() {
   };
 
   const updateCartItem = (productId, quantity) => {
-    fetch(`/api/carts`, {
+    fetch(`/carts`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -127,7 +127,7 @@ function Cart() {
   };
 
   const deleteCartItem = (itemId) => {
-    fetch(`/api/carts`, {
+    fetch(`/carts`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

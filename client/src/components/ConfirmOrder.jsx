@@ -8,7 +8,7 @@ function ConfirmOrder() {
   const navigate = useNavigate();
 
   const handleYes = () => {
-    fetch(`/api/checkout`, {
+    fetch(`/checkout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

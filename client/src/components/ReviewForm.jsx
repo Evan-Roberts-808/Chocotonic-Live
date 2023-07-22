@@ -18,7 +18,7 @@ function ReviewForm({ product, onAdd }) {
   });
 
   const handleSubmit = (values) => {
-    fetch(`/api/reviews/product/${product.id}`, {
+    fetch(`/reviews/product/${product.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

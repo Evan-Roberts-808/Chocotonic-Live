@@ -12,7 +12,7 @@ function PaymentDetails() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/payments/${user.id}`)
+    fetch(`/payments/${user.id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -36,7 +36,7 @@ function PaymentDetails() {
 
   const handleFormSubmit = (values) => {
     if (selectedPaymentId) {
-      fetch(`/api/payments/${user.id}/${selectedPaymentId}`, {
+      fetch(`/payments/${user.id}/${selectedPaymentId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function PaymentDetails() {
           console.error(error);
         });
     } else {
-      fetch(`/api/payments/${user.id}`, {
+      fetch(`/payments/${user.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ function PaymentDetails() {
 
   const handleConfirmDelete = () => {
     if (selectedPaymentId) {
-      fetch(`/api/payments/${user.id}/${selectedPaymentId}`, {
+      fetch(`/payments/${user.id}/${selectedPaymentId}`, {
         method: "DELETE",
       })
         .then((response) => {

@@ -12,7 +12,7 @@ function Address() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/addresses/${user.id}`)
+    fetch(`/addresses/${user.id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -51,7 +51,7 @@ function Address() {
 
   const handleFormSubmit = (values) => {
     if (selectedAddressId) {
-      fetch(`/api/addresses/${user.id}/${selectedAddressId}`, {
+      fetch(`/addresses/${user.id}/${selectedAddressId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -76,7 +76,7 @@ function Address() {
           console.error(error);
         });
     } else {
-      fetch(`/api/addresses/${user.id}`, {
+      fetch(`/addresses/${user.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +102,7 @@ function Address() {
 
   const handleConfirmDelete = () => {
     if (selectedAddressId) {
-      fetch(`/api/addresses/${user.id}/${selectedAddressId}`, {
+      fetch(`/addresses/${user.id}/${selectedAddressId}`, {
         method: "DELETE",
       })
         .then((response) => {

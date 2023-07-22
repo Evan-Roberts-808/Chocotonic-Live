@@ -17,7 +17,7 @@ function Product() {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    fetch("/api/carts")
+    fetch("/carts")
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -35,7 +35,7 @@ function Product() {
   }, []);
 
   useEffect(() => {
-    fetch(`/api/products/${id}`)
+    fetch(`/products/${id}`)
       .then((response) => response.json())
       .then((productData) => {
         setProduct(productData);
@@ -46,7 +46,7 @@ function Product() {
   }, [id]);
 
   useEffect(() => {
-    fetch(`/api/reviews/product/${id}`)
+    fetch(`/reviews/product/${id}`)
       .then((r) => r.json())
       .then((reviews) => {
         setReviews(reviews);
@@ -108,7 +108,7 @@ function Product() {
       quantity: quantity,
     };
 
-    fetch("/api/carts", {
+    fetch("/carts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

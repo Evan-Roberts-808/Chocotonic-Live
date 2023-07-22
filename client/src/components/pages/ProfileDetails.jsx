@@ -20,7 +20,7 @@ function ProfileDetails() {
   });
 
   useEffect(() => {
-    fetch("/api/user/orders")
+    fetch("/user/orders")
       .then((r) => r.json())
       .then((orders) => {
         setOrders(orders);
@@ -42,7 +42,7 @@ function ProfileDetails() {
   };
 
   const handleYes = () => {
-    fetch(`/api/users`, {
+    fetch(`/users`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ function ProfileDetails() {
               initialValues={{ email: user.email, password: "" }}
               validationSchema={validationSchema}
               onSubmit={(values) => {
-                fetch("/api/users", {
+                fetch("/users", {
                   method: "PATCH",
                   headers: {
                     "Content-Type": "application/json",

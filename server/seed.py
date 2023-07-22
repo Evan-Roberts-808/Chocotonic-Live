@@ -44,7 +44,7 @@ def restore_products():
 
     db.session.query(Product).delete()
 
-    with open('data-backup/products_backup.pickle', 'rb') as file:
+    with open("data-backup/<class 'models.Product'>.pickle", 'rb') as file:
         data = pickle.load(file)
 
         for product in data:
@@ -211,12 +211,30 @@ def update_order_statuses():
     print("Order statuses updated successfully.")
 
 
+def restore_backup(filename):
+    with open(filename, 'rb') as f:
+        data = pickle.load(f)
+
+    product_objects = [
+    OrderItem(
+        order_id=info.order_id,
+        product_id=info.product_id,
+        quantity=info.quantity,
+        price=info.price
+    ) for info in data
+]
+
+    db.session.add_all(product_objects)
+    db.session.commit()
+
+
 if __name__ == "__main__":
     with app.app_context():
+        # restore_backup("data-backup/<class 'models.OrderItem'>.pickle")
         # update_order_statuses()
         # seed_order_status()
-        # save_table_data_to_pickle(Review)
-        # view_pickle_structure("<class 'models.Product'>.pickle")
+        # save_table_data_to_pickle(User)
+        view_pickle_structure("data-backup/<class 'models.Order'>.pickle")
         # seed_orders()
         # seed_reviews()
         # seed_users()

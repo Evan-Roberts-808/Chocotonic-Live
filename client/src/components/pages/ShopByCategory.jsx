@@ -15,7 +15,7 @@ function ShopByCategory() {
   useEffect(() => {
     setIsFetching(true);
 
-    fetch(`/api/products/category/${id}`)
+    fetch(`/products/category/${id}`)
       .then((r) => r.json())
       .then((products) => {
         setProducts(products);

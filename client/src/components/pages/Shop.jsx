@@ -11,7 +11,7 @@ function Shop() {
   const [selectedPriceRange, setSelectedPriceRange] = useState("");
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch("/products")
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
