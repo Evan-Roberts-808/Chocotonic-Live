@@ -117,7 +117,6 @@ function Product() {
     })
       .then((response) => {
         if (response.ok) {
-          console.log("Item added to cart");
           setCartItems((prevCartItems) => [...prevCartItems, product.id]);
         } else {
           throw new Error("Error adding item to cart");

@@ -15,7 +15,6 @@ function ReviewContainer({ reviews }) {
   };
 
   const reviewsList = currentReviews.map((review) => {
-    console.log(review);
     const date = new Date(review.created_at);
     const formattedDate = date.toLocaleDateString("en-US", {
       year: "numeric",

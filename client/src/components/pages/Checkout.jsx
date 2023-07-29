@@ -6,7 +6,6 @@ import ConfirmOrder from "../ConfirmOrder";
 
 function Checkout() {
   const [currentStep, setCurrentStep] = useState("payment");
-  console.log(currentStep)
   const handlePaymentNext = () => {
     setCurrentStep("address");
   };

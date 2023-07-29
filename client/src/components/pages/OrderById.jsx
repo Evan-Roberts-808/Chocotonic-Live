@@ -10,7 +10,7 @@ function OrderById() {
   const { order_id } = useParams();
   const navigate = useNavigate();
   const [confirmation, setConfirmation] = useState(false);
-  console.log(order)
+
   useEffect(() => {
     fetch(`/user/orders/${order_id}`)
       .then((response) => {
